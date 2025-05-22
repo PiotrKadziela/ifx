@@ -43,6 +43,7 @@ class Account
     public function getBalance(): Money
     {
         $balance = new Money(0, $this->currency);
+
         foreach ($this->payments as $payment) {
             if ($payment->type === Payment::TYPE_CREDIT) {
                 $balance = $balance->add($payment->amount);
@@ -52,6 +53,7 @@ class Account
                 $balance = $balance->add($payment->amount->negate());
             }
         }
+
         return $balance;
     }
 

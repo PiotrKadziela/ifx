@@ -11,8 +11,7 @@ class DebitService
 {
     public function __construct(
         private readonly AccountRepositoryInterface $accountRepository,
-    )
-    {}
+    ) {}
 
     public function execute(DebitRequest $request): void
     {

@@ -56,6 +56,7 @@ class AccountTest extends TestCase
         $this->account->addCredit(new Money(20.0, self::CURRENCY));
 
         $this->expectException(BalanceTooLowException::class);
+
         $this->account->addDebit(new Money(21.0, self::CURRENCY));
     }
 
@@ -75,6 +76,7 @@ class AccountTest extends TestCase
     public function testCannotAddDebitWhenCurrencyDoesNotMatch(): void
     {
         $this->account->addCredit(new Money(100.0, self::CURRENCY));
+
         $this->expectException(CurrencyMismatchException::class);
 
         $this->account->addDebit(new Money(20.0, self::INVALID_CURRENCY));

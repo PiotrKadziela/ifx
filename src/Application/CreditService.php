@@ -11,8 +11,7 @@ class CreditService
 {
     public function __construct(
         private readonly AccountRepositoryInterface $accountRepository,
-    )
-    {}
+    ) {}
 
     public function execute(CreditRequest $request): void
     {
